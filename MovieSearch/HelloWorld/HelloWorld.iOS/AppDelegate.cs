@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using DM;
+using DM.MovieApi;
 
 namespace MovieSearch.iOS
 {
@@ -22,7 +23,7 @@ namespace MovieSearch.iOS
             // If not required for your application you can safely delete this method
             this.Window = new UIWindow(UIScreen.MainScreen.Bounds);
             var controller = new MovieSearchViewController(new MovieDbSettings());
-		    this.Window.RootViewController = controller;
+			this.Window.RootViewController = new UINavigationController(controller);
             this.Window.MakeKeyAndVisible();
             return true;
 		}
