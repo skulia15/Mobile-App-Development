@@ -5,8 +5,11 @@ using DM.MovieApi;
 using DM.MovieApi.MovieDb.Movies;
 using DM.MovieApi.ApiResponse;
 using System.Collections.Generic;
+using MovieDownload;
+using System.Threading;
+using System.IO;
 
-namespace MovieSearch.iOS
+namespace MovieSearch.iOS.Controllers
 {
     public class MovieSearchViewController : UIViewController
     {
@@ -14,7 +17,9 @@ namespace MovieSearch.iOS
         private const double StartY = 80;
         private const double Height = 50;
 
-        public MovieSearchViewController(IMovieDbSettings settings)
+		private ImageDownloader imageDownloader = new ImageDownloader(new StorageClient());
+
+		public MovieSearchViewController(IMovieDbSettings settings)
         {
             MovieDbFactory.RegisterSettings(settings);
         }
@@ -63,25 +68,46 @@ namespace MovieSearch.iOS
 			{
 				loading.StartAnimating();
 				searchButton.Enabled = false;
-				List<string> titles = new List<string>();
+				List<Movie> movies = new List<Movie>();
 
 				searchField.ResignFirstResponder();
 				if(searchField.Text != null	&& searchField.Text != "")
 				{
-					ApiSearchResponse<MovieInfo> response = await movieApi.SearchByTitleAsync(searchField.Text);
-					foreach(MovieInfo m in response.Results)
+					ApiSearchResponse<MovieInfo> titleResponse = await movieApi.SearchByTitleAsync(searchField.Text);
+					foreach(MovieInfo m in titleResponse.Results)
 					{
-						titles.Add(m.Title);
+						string localPathForImage = imageDownloader.LocalPathForFilename(m.PosterPath);
+						await imageDownloader.DownloadImage(m.PosterPath, localPathForImage, CancellationToken.None);
+						ApiQueryResponse<MovieCredit> creditResponse = await movieApi.GetCreditsAsync(m.Id);
+						List<string> cast = GetCast(creditResponse);
+						movies.Add(new Movie()
+						{
+							Title = m.Title,
+							Year = m.ReleaseDate.Year,
+							Cast = cast,
+							ImageName = localPathForImage
+						});
 					}
 				}
 				loading.StopAnimating();
 				searchButton.Enabled = true;
-				this.NavigationController.PushViewController(new MovieTitleController(titles), true);
+				this.NavigationController.PushViewController(new MovieTitleController(movies), true);
             };
             return searchButton;
         }
 
-        private UILabel PromptLabel()
+		private static List<string> GetCast(ApiQueryResponse<MovieCredit> creditResponse)
+		{
+			List<string> cast = new List<string>();
+			foreach (MovieCastMember c in creditResponse.Item.CastMembers)
+			{
+				cast.Add(c.Name);
+			}
+
+			return cast;
+		}
+
+		private UILabel PromptLabel()
         {
             return new UILabel()
             {

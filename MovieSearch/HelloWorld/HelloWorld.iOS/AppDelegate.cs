@@ -1,7 +1,6 @@
 ﻿using Foundation;
 using UIKit;
-using DM;
-using DM.MovieApi;
+using MovieSearch.iOS.Controllers;
 
 namespace MovieSearch.iOS
 {
@@ -60,5 +59,3 @@ namespace MovieSearch.iOS
 		}
 	}
 }
-
-
