@@ -9,12 +9,7 @@ namespace MovieSearch
 {
     public class MovieDbSettings : IMovieDbSettings
     {
-        public MovieDbSettings()
-        {
-        }
-
         string IMovieDbSettings.ApiKey => "c60e010a9dfbf3d465fc908d6320d1c2";
-
         string IMovieDbSettings.ApiUrl => "http://api.themoviedb.org/3/";
     }
 }

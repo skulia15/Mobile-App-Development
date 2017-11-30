@@ -157,9 +157,13 @@
     <Compile Include="Controllers\MovieDetailsViewController.cs" />
     <Compile Include="Controllers\MovieListDataSource.cs" />
     <Compile Include="Controllers\MovieSearchViewController.cs" />
+    <Compile Include="Controllers\TabBarController.cs" />
+    <Compile Include="Controllers\TopRatedViewController.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Controllers\MovieTitleController.cs" />
+    <Compile Include="Services\IMovieConverter.cs" />
+    <Compile Include="Services\MovieConverter.cs" />
     <Compile Include="Views\MovieCell.cs" />
   </ItemGroup>
   <ItemGroup>

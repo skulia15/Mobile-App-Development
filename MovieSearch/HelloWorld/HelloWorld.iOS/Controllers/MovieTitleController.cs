@@ -5,7 +5,7 @@ using System.Text;
 
 using Foundation;
 using UIKit;
-using HelloWorld.iOS.Controllers;
+using MovieSearch.iOS.Controllers;
 
 namespace MovieSearch.iOS.Controllers
 {

@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using MovieSearch.iOS.Controllers;
+using MovieSearch.Services;
 
 namespace MovieSearch.iOS
 {
@@ -21,8 +22,20 @@ namespace MovieSearch.iOS
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
             this.Window = new UIWindow(UIScreen.MainScreen.Bounds);
-            var controller = new MovieSearchViewController(new MovieDbSettings());
-			this.Window.RootViewController = new UINavigationController(controller);
+			MovieConverter converter = new MovieConverter(new MovieDbSettings());
+            var searchController = new MovieSearchViewController(converter);
+			var searchNavigationController = new UINavigationController(searchController);
+			var topRatedController = new TopRatedController(converter);
+			var topRatedNavigationController = new UINavigationController(topRatedController);
+			var tabBarController = new TabBarController()
+			{
+					ViewControllers = new UIViewController[]
+					{
+						searchNavigationController,
+						topRatedNavigationController
+					}
+			};
+			this.Window.RootViewController = tabBarController;
             this.Window.MakeKeyAndVisible();
             return true;
 		}

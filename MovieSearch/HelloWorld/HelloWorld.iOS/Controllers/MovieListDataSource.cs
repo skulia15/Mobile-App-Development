@@ -25,6 +25,8 @@ namespace MovieSearch.iOS.Controllers
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
 			var cell = (MovieCell)tableView.DequeueReusableCell((NSString)this.movieCellId);
+			tableView.RowHeight = 60;
+			tableView.BackgroundColor = UIColor.FromRGB(51, 51, 51);
 			if (cell == null)
 			{
 				cell = new MovieCell(this.movieCellId);

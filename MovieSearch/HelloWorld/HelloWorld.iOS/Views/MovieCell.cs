@@ -11,7 +11,7 @@ namespace MovieSearch.iOS.Views
 {
 	public class MovieCell : UITableViewCell
 	{
-		private const double ImageHeight = 33;
+		private const double ImageHeight = 55;
 		private UIImageView _imageView;
 		private UILabel _headingLabel;
 		private UILabel _subheadingLabel;
@@ -20,6 +20,7 @@ namespace MovieSearch.iOS.Views
 		public MovieCell(NSString cellId) : base(UITableViewCellStyle.Default, cellId)
 		{
 			this.SelectionStyle = UITableViewCellSelectionStyle.Gray;
+			this.BackgroundColor = UIColor.FromRGB(51, 51, 51);
 
 			this._imageView = new UIImageView()
 			{
@@ -28,28 +29,31 @@ namespace MovieSearch.iOS.Views
 
 			this._headingLabel = new UILabel()
 			{
-				Frame = new CGRect(ImageHeight + 15, 5, this.ContentView.Bounds.Width - 60, 25),
-				Font = UIFont.FromName("ArialMT", 13f),
-				TextColor = UIColor.FromRGB(0, 0, 0),
+				Frame = new CGRect(ImageHeight + 15, 10, this.ContentView.Bounds.Width - ImageHeight - 50, 25),
+				Font = UIFont.FromName("ArialMT", 15f),
+				TextColor = UIColor.White,
 				BackgroundColor = UIColor.Clear
 			};
 
 			this._subheadingLabel = new UILabel()
 			{
-				Frame = new CGRect(ImageHeight + 15, 22, this.ContentView.Bounds.Width - 60, 20),
-				Font = UIFont.FromName("ArialMT", 9f),
-				TextColor = UIColor.FromRGB(100, 100, 100),
+				Frame = new CGRect(ImageHeight + 15, 30, this.ContentView.Bounds.Width - ImageHeight - 50, 20),
+				Font = UIFont.FromName("ArialMT", 10f),
+				TextColor = UIColor.LightGray,
 				BackgroundColor = UIColor.Clear
 			};
-
 			this.ContentView.AddSubviews(new UIView[] { this._imageView, this._headingLabel, this._subheadingLabel });
 
 			this.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+			
 		}
 
 		public void UpdateCell(Movie movie)
 		{
-			this._imageView.Image = UIImage.FromFile(movie.ImageName);
+			if (movie.ImageName != "")
+			{
+				this._imageView.Image = UIImage.FromFile(movie.ImageName);
+			}
 			this._headingLabel.Text = movie.Title + " (" + movie.Year + ')';
 			string castMembers = "";
 			for(int i = 0; i < movie.Cast.Count && i < 3; i++)
