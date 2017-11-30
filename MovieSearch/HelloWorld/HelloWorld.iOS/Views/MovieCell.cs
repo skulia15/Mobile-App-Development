@@ -30,7 +30,7 @@ namespace MovieSearch.iOS.Views
 			this._headingLabel = new UILabel()
 			{
 				Frame = new CGRect(ImageHeight + 15, 10, this.ContentView.Bounds.Width - ImageHeight - 50, 25),
-				Font = UIFont.FromName("ArialMT", 15f),
+				Font = UIFont.FromName("Arial-BoldMT", 15f),
 				TextColor = UIColor.White,
 				BackgroundColor = UIColor.Clear
 			};

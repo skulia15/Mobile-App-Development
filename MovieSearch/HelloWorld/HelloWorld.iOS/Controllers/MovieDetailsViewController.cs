@@ -93,7 +93,7 @@ namespace MovieSearch.iOS.Controllers
 			{
 				Frame = new CGRect(StartX, StartY, this.View.Bounds.Width - 2 * StartX, Height),
 				Text = _movie.Title + " (" + _movie.Year + ")",
-				Font = UIFont.FromName("ArialMT", 18f),
+				Font = UIFont.FromName("Arial-BoldMT", 18f),
 				TextColor = UIColor.White,
                 BackgroundColor = UIColor.Clear
             };

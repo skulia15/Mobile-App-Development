@@ -17,6 +17,7 @@ namespace MovieSearch.iOS.Controllers
 		IMovieConverter converter;
 		List<Movie> _movies = new List<Movie>();
 		UIActivityIndicatorView loading;
+		bool reload = true;
 		public TopRatedController(IMovieConverter converter)
 		{
 			this.converter = converter;
@@ -36,19 +37,32 @@ namespace MovieSearch.iOS.Controllers
 		public override async void ViewDidAppear(bool animated)
 		{
 			base.ViewDidAppear(animated);
-			loading.StartAnimating();
 
-			_movies = await converter.GetTopRatedMoviesAsync();
+			this.ParentViewController.TabBarController.ViewControllerSelected += (sender, err) =>
+			{
+				if (ParentViewController.TabBarController.SelectedIndex != 1)
+				{
+					reload = true;
+				}
+			};
+			if (reload)
+			{
+				loading.StartAnimating();
 
-			loading.StopAnimating();
+				_movies = await converter.GetTopRatedMoviesAsync();
 
-			this.NavigationController.PushViewController(new MovieTitleController(_movies), true);
+				loading.StopAnimating();
+
+				this.TableView.Source = new MovieListDataSource(_movies, _onSelectedMovie);
+				this.TableView.ReloadData();
+				reload = false;
+			}
 		}
 
 		private void Loading()
 		{
 			loading = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.WhiteLarge);
-			loading.Frame = new CGRect(this.View.Bounds.Width / 2 - loading.Frame.Width / 2, 6, loading.Frame.Width, loading.Frame.Height);
+			loading.Frame = new CGRect(this.View.Bounds.Width / 2 - loading.Frame.Width / 2, 5, loading.Frame.Width, loading.Frame.Height);
 			loading.AutoresizingMask = UIViewAutoresizing.All;
 		}
 
