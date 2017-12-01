@@ -1,3 +1,3 @@
 # Mobile-App-Development
 
-![alt text](https://raw.githubusercontent.com/skulia15/Mobile-App-Development/Master/Screenshots/Screen1.png)
+![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Screen1.png)
