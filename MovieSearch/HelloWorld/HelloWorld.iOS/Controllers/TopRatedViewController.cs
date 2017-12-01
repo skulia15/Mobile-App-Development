@@ -17,7 +17,7 @@ namespace MovieSearch.iOS.Controllers
 		IMovieConverter converter;
 		List<Movie> _movies = new List<Movie>();
 		UIActivityIndicatorView loading;
-		bool reload = true;
+		public bool reload = true;
 		public TopRatedController(IMovieConverter converter)
 		{
 			this.converter = converter;
@@ -44,6 +44,7 @@ namespace MovieSearch.iOS.Controllers
 				{
 					reload = true;
 				}
+
 			};
 			if (reload)
 			{

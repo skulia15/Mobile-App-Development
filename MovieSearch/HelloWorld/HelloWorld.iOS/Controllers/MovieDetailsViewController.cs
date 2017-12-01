@@ -42,6 +42,11 @@ namespace MovieSearch.iOS.Controllers
 			this.View.AddSubviews(new UIView[] { titleLabel, statsLabel, descriptionLabel, imageView, line });
 		}
 
+		public override void ViewDidAppear(bool animated)
+		{
+			base.ViewDidAppear(animated);
+		}
+
 		private UIView MakeLine()
 		{
 			return new UIView()
