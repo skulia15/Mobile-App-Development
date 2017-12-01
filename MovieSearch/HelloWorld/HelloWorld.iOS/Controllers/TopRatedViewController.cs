@@ -21,7 +21,7 @@ namespace MovieSearch.iOS.Controllers
 		public TopRatedController(IMovieConverter converter)
 		{
 			this.converter = converter;
-			this.TabBarItem = new UITabBarItem(UITabBarSystemItem.Favorites, 1);
+			this.TabBarItem = new UITabBarItem(UITabBarSystemItem.TopRated, 1);
 		}
 
 		public override void ViewDidLoad()
@@ -47,6 +47,8 @@ namespace MovieSearch.iOS.Controllers
 			};
 			if (reload)
 			{
+				_movies.Clear();
+				this.TableView.ReloadData();
 				loading.StartAnimating();
 
 				_movies = await converter.GetTopRatedMoviesAsync();

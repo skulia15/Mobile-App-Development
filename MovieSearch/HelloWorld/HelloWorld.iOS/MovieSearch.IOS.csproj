@@ -157,6 +157,7 @@
     <Compile Include="Controllers\MovieDetailsViewController.cs" />
     <Compile Include="Controllers\MovieListDataSource.cs" />
     <Compile Include="Controllers\MovieSearchViewController.cs" />
+    <Compile Include="Controllers\DarkNavigationController.cs" />
     <Compile Include="Controllers\TabBarController.cs" />
     <Compile Include="Controllers\TopRatedViewController.cs" />
     <Compile Include="Main.cs" />

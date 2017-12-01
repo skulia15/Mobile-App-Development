@@ -23,10 +23,19 @@ namespace MovieSearch.iOS
             // If not required for your application you can safely delete this method
             this.Window = new UIWindow(UIScreen.MainScreen.Bounds);
 			MovieConverter converter = new MovieConverter(new MovieDbSettings());
+
             var searchController = new MovieSearchViewController(converter);
+			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(24, 24, 24);
+			UINavigationBar.Appearance.TintColor = UIColor.FromRGB(186, 157, 9);
+			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes()
+			{
+				TextColor = UIColor.White
+			});
+
 			var searchNavigationController = new UINavigationController(searchController);
 			var topRatedController = new TopRatedController(converter);
 			var topRatedNavigationController = new UINavigationController(topRatedController);
+
 			var tabBarController = new TabBarController()
 			{
 					ViewControllers = new UIViewController[]
