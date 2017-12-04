@@ -2,19 +2,14 @@
 using DM.MovieApi.ApiResponse;
 using DM.MovieApi.MovieDb.Genres;
 using DM.MovieApi.MovieDb.Movies;
-using MovieDownload;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using UIKit;
 
 namespace MovieSearch.Services
 {
 	public class MovieConverter : IMovieConverter
 	{
-		private ImageDownloader imageDownloader = new ImageDownloader(new StorageClient());
 		IApiMovieRequest movieApi;
 
 		public MovieConverter(IMovieDbSettings settings)
@@ -55,8 +50,6 @@ namespace MovieSearch.Services
 
 		public async Task<Movie> GetMovieFromMovieInfo(MovieInfo movie)
 		{
-			string localPathForImage = await getPoster(movie);
-
 			var creditResponse = await movieApi.GetCreditsAsync(movie.Id);
 			var movieResponse = await movieApi.FindByIdAsync(movie.Id);
 			List<string> cast = GetCast(creditResponse);
@@ -67,23 +60,11 @@ namespace MovieSearch.Services
 				Title = movie.Title,
 				Year = movie.ReleaseDate.Year,
 				Cast = cast,
-				ImageName = localPathForImage,
+				ImageName = movie.PosterPath,
 				Genres = genres,
 				Description = movie.Overview,
 				Runtime = movieResponse.Item.Runtime
 			};
-		}
-
-		private async Task<string> getPoster(MovieInfo movie)
-		{
-			string localPathForImage = imageDownloader.LocalPathForFilename(movie.PosterPath);
-			if (File.Exists(localPathForImage) == false && localPathForImage != "")
-			{
-				await imageDownloader.DownloadImage(movie.PosterPath, localPathForImage, CancellationToken.None);
-
-			}
-
-			return localPathForImage;
 		}
 
 		private static List<string> GetGenres(MovieInfo m)

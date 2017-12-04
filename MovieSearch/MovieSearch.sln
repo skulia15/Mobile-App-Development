@@ -9,8 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieSearch.IOS", "HelloWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieSearch", "HelloWorld\HelloWorld\MovieSearch.csproj", "{6FE738D2-251F-4785-90A6-FEDA8EB31BFD}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MovieDownload", "HelloWorld\MovieDownload\MovieDownload.shproj", "{8E0A00B1-D0E6-48F6-AA04-26171F002437}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		HelloWorld\MovieDownload\MovieDownload.projitems*{5edda305-58c3-4e34-baf3-e1f498879e39}*SharedItemsImports = 4
+		HelloWorld\MovieDownload\MovieDownload.projitems*{8e0a00b1-d0e6-48f6-aa04-26171f002437}*SharedItemsImports = 13
 		HelloWorld\MovieDownload\MovieDownload.projitems*{d790d5a2-6ea2-4d8b-9cb2-6030e6c6f1c5}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

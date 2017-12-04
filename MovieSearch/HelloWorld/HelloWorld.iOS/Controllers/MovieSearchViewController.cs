@@ -6,20 +6,24 @@ using MovieDownload;
 using System.Threading;
 using System.IO;
 using MovieSearch.Services;
+using DM.MovieApi.MovieDb.Movies;
+using System.Threading.Tasks;
 
 namespace MovieSearch.iOS.Controllers
 {
     public class MovieSearchViewController : UIViewController
     {
 		IMovieConverter converter;
+		ImageDownloader imageDownloader;
 		private const double StartX = 20;
         private const double StartY = 80;
         private const double Height = 50;
 
-		public MovieSearchViewController(IMovieConverter converter)
+		public MovieSearchViewController(MovieConverter converter, ImageDownloader imageDownloader)
         {
 			this.TabBarItem = new UITabBarItem(UITabBarSystemItem.Search, 0);
 			this.converter = converter;
+			this.imageDownloader = imageDownloader;
 		}
 
         public int HttpGet { get; private set; }
@@ -70,6 +74,10 @@ namespace MovieSearch.iOS.Controllers
 				searchButton.Enabled = false;
 				searchField.ResignFirstResponder();
 				List<Movie> movies = await converter.GetMoviesByTitleAsync(searchField.Text);
+				foreach(Movie m in movies)
+				{
+					m.ImageName = await getPosterAsync(m.ImageName);
+				}
 				loading.StopAnimating();
 				searchButton.Enabled = true;
 				this.NavigationController.PushViewController(new MovieTitleController(movies), true);
@@ -95,5 +103,16 @@ namespace MovieSearch.iOS.Controllers
                 BorderStyle = UITextBorderStyle.RoundedRect
             };
         }
-    }
+
+		private async Task<string> getPosterAsync(string posterPath)
+		{
+			string localPathForImage = imageDownloader.LocalPathForFilename(posterPath);
+			if (File.Exists(localPathForImage) == false && localPathForImage != "")
+			{
+				await imageDownloader.DownloadImage(posterPath, localPathForImage, CancellationToken.None);
+
+			}
+			return localPathForImage;
+		}
+	}
 }

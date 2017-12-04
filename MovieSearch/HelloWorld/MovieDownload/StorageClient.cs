@@ -1,5 +1,4 @@
-﻿
-namespace MovieDownload
+﻿namespace MovieDownload
 {
     using System;
     using System.IO;

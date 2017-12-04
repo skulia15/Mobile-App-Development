@@ -2,6 +2,7 @@
 using UIKit;
 using MovieSearch.iOS.Controllers;
 using MovieSearch.Services;
+using MovieDownload;
 
 namespace MovieSearch.iOS
 {
@@ -22,9 +23,10 @@ namespace MovieSearch.iOS
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
             this.Window = new UIWindow(UIScreen.MainScreen.Bounds);
+			ImageDownloader imageDownloader = new ImageDownloader(new StorageClient());
 			MovieConverter converter = new MovieConverter(new MovieDbSettings());
 
-            var searchController = new MovieSearchViewController(converter);
+            var searchController = new MovieSearchViewController(converter, imageDownloader);
 			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(24, 24, 24);
 			UINavigationBar.Appearance.TintColor = UIColor.FromRGB(186, 157, 9);
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes()

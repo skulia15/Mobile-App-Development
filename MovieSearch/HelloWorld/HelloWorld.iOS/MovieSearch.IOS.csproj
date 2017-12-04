@@ -92,6 +92,10 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelloWorld.Android\MovieSearch.Android.csproj">
+      <Project>{5EDDA305-58C3-4E34-BAF3-E1F498879E39}</Project>
+      <Name>MovieSearch.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HelloWorld\MovieSearch.csproj">
       <Name>MovieSearch</Name>
       <Project>{6FE738D2-251F-4785-90A6-FEDA8EB31BFD}</Project>
@@ -163,8 +167,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Controllers\MovieTitleController.cs" />
-    <Compile Include="Services\IMovieConverter.cs" />
-    <Compile Include="Services\MovieConverter.cs" />
     <Compile Include="Views\MovieCell.cs" />
   </ItemGroup>
   <ItemGroup>
