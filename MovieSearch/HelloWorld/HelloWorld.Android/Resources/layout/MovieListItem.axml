@@ -3,14 +3,15 @@
     android:id="@+id/listItem"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightBlack"
     android:padding="10dp">
-    <TextView
+  <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="Arial-MTBold"
-        android:textSize="15dp"
-        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textColor="@color/white"
         android:layout_toRightOf="@+id/poster"
         android:id="@+id/title" />
     <TextView
@@ -18,10 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="ArialMT"
-        android:textSize="12dp"
-        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textColor="@color/white"
         android:id="@+id/cast"
         android:layout_below="@id/title"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/poster" />
     <ImageView
         android:id="@+id/poster"

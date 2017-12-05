@@ -1,4 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <color name="black">#000000</color>
+  <color name="white">#FFFFFF</color>
+  <color name="lightBlack">#373737</color>
+  <color name="darkerBlack">#1a1a1a</color>
+  <color name="gold">#ba9d09</color>
 </resources>

@@ -14,7 +14,7 @@ using Com.Bumptech.Glide;
 
 namespace MovieSearch.Droid
 {
-	[Activity(Label = "MovieDetailActivity", Theme = "@style/MyTheme")]
+	[Activity(Label = "Movie Details", Theme = "@style/MyTheme")]
 	public class MovieDetailActivity : Activity
 	{
 		private Movie _movie;
@@ -24,6 +24,7 @@ namespace MovieSearch.Droid
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+			RequestWindowFeature(WindowFeatures.NoTitle);
 			// Create application here
 
 			SetContentView(Resource.Layout.MovieDetail);

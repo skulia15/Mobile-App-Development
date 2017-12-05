@@ -21,8 +21,6 @@ namespace MovieSearch.Droid
 		private readonly List<Movie> _movieList;
 		private const string POSTER_URL = "http://image.tmdb.org/t/p/original";
 
-
-
 		public MovieListAdapter(Activity context, List<Movie> movieList)
 		{
 			this._context = context;

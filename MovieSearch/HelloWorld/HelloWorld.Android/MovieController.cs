@@ -25,7 +25,6 @@ namespace MovieSearch.Droid
 			converter = new MovieConverter(new MovieDbSettings());
 		}
 
-
 		public async Task<Movie> GetSingleMovieAsync(string searchTerm)
 		{
 			List<Movie> movies = await converter.GetMoviesByTitleAsync(searchTerm);

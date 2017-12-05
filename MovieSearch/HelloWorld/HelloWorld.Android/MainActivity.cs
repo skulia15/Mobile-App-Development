@@ -19,10 +19,10 @@ namespace MovieSearch.Droid
 	{
 		public static List<Movie> Movies { get; set; }
 		private MovieController movieController = new MovieController();
-
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+			RequestWindowFeature(WindowFeatures.NoTitle);
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);

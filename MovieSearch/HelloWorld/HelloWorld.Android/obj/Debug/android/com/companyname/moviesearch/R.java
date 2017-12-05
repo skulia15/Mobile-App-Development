@@ -12,6 +12,10 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f040000;
+        public static final int darkerBlack=0x7f040003;
+        public static final int gold=0x7f040004;
+        public static final int lightBlack=0x7f040002;
+        public static final int white=0x7f040001;
     }
     public static final class drawable {
         public static final int icon=0x7f020000;

@@ -13,19 +13,23 @@ using Newtonsoft.Json;
 
 namespace MovieSearch.Droid
 {
-	[Activity(Label = "MovieListActivity", Theme = "@style/MyTheme")]
+	[Activity(Label = "Movie Search", Theme = "@style/MyTheme.Splash")]
 	public class MovieListActivity : ListActivity
 	{
 		private List<Movie> _movieList;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+			RequestWindowFeature(WindowFeatures.NoTitle);
 			// Create application here
 
 			// Get the passed JSON string of movies
 			var jsonStr = this.Intent.GetStringExtra("movieList");
 			// Convert from JSON string to a list of movies
-			_movieList = JsonConvert.DeserializeObject<List<Movie>>(jsonStr);
+			if(jsonStr != null && jsonStr != "")
+			{
+				_movieList = JsonConvert.DeserializeObject<List<Movie>>(jsonStr);
+			}
 
 			this.ListView.ItemClick += (sender, args) =>
 			{
