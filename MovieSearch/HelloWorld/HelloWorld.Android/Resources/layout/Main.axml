@@ -20,16 +20,15 @@
         android:hint="Movie Title"
         android:layout_marginTop="20dp" />
     <Button
-        android:text="Get movie"
+        android:text="Get movies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchButton"
         android:textAllCaps="false"
         android:layout_marginTop="20dp" />
-    <TextView
-        android:text=""
+    <ProgressBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/titleTextView"
-        android:layout_marginTop="20dp" />
+        android:id="@+id/progressBar" 
+        android:layout_marginTop="20dp"/>
 </LinearLayout>

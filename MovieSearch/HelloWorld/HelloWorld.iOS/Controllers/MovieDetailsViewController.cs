@@ -71,13 +71,12 @@ namespace MovieSearch.iOS.Controllers
 		// Display Movie stats
 		private UILabel StatsLabel()
 		{
-			string genreList = getStringedGenres();
 			return new UILabel()
 			{
 				Frame = new CGRect(StartX, StartY + 40, this.View.Bounds.Width - 2 * StartX, Height),
 				Font = UIFont.FromName("ArialMT", 15f),
 				TextColor = UIColor.White,
-				Text = _movie.Runtime + " min | " + getStringedGenres()
+				Text = _movie.Runtime + " min | " + _movie.getStringedGenres()
 			};
 		}
 
@@ -102,20 +101,6 @@ namespace MovieSearch.iOS.Controllers
 				TextColor = UIColor.White,
                 BackgroundColor = UIColor.Clear
             };
-		}
-
-		private string getStringedGenres()
-		{
-			string stringedGenres = "";
-			foreach(string g in _movie.Genres)
-			{
-				if(stringedGenres != "")
-				{
-					stringedGenres += ", ";
-				}
-				stringedGenres += g;
-			}
-			return stringedGenres;
 		}
 
 	}

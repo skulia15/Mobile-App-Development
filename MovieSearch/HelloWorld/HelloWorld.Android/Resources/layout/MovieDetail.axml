@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="35.5dp"
+        android:id="@+id/title"
+        android:layout_marginLeft="14.5dp"
+        android:layout_marginTop="13.5dp" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="369.5dp"
+        android:layout_height="29.5dp"
+        android:id="@+id/stats"
+        android:layout_below="@id/title"
+        android:layout_marginLeft="14.5dp"
+        android:layout_marginBottom="5.5dp" />
+    <TwoLineListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stats"
+        android:id="@+id/line" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="97.5dp"
+        android:layout_height="127.5dp"
+        android:id="@+id/poster"
+        android:layout_marginLeft="14.5dp"
+        android:layout_marginTop="18.5dp"
+        android:layout_marginRight="9.0dp"
+        android:layout_below="@id/line" />
+    <TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description"
+        android:layout_marginLeft="12.0dp"
+        android:layout_toRightOf="@+id/poster"
+        android:layout_below="@id/line"
+        android:layout_marginTop="21.0dp" />
+</RelativeLayout>

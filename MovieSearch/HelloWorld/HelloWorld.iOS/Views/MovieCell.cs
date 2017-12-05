@@ -55,16 +55,7 @@ namespace MovieSearch.iOS.Views
 				this._imageView.Image = UIImage.FromFile(movie.ImageName);
 			}
 			this._headingLabel.Text = movie.Title + " (" + movie.Year + ')';
-			string castMembers = "";
-			for(int i = 0; i < movie.Cast.Count && i < 3; i++)
-			{
-				if (i != 0)
-				{
-					castMembers += ", ";
-				}
-				castMembers += movie.Cast[i];
-			}
-			this._subheadingLabel.Text = castMembers;
+			this._subheadingLabel.Text = movie.CastToString();
 		}
 	}
 }

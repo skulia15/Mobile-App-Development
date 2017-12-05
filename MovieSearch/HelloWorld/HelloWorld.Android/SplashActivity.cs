@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace MovieSearch.Droid
 {
-	[Activity(Label = "MovieHub", Theme = "@style/MyTheme.Splash", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity(Label = "MovieHub", Theme = "@style/MyTheme.Splash", MainLauncher = true, Icon = "@drawable/Icon")]
 	public class SplashActivity : Activity
 	{
 		protected override void OnCreate(Bundle savedInstanceState)
