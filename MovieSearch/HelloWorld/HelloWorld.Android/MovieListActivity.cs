@@ -13,16 +13,18 @@ using Newtonsoft.Json;
 
 namespace MovieSearch.Droid
 {
-	[Activity(Label = "Movie Search", Theme = "@style/MyTheme.Splash")]
-	public class MovieListActivity : ListActivity
+	[Activity(Label = "Movie Search", Theme = "@style/MyTheme")]
+	public class MovieListActivity : Activity
 	{
 		private List<Movie> _movieList;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			RequestWindowFeature(WindowFeatures.NoTitle);
+			SetContentView(Resource.Layout.MovieList);
 			// Create application here
 
+			var listView = FindViewById<ListView>(Resource.Id.topRated);
 			// Get the passed JSON string of movies
 			var jsonStr = this.Intent.GetStringExtra("movieList");
 			// Convert from JSON string to a list of movies
@@ -31,7 +33,7 @@ namespace MovieSearch.Droid
 				_movieList = JsonConvert.DeserializeObject<List<Movie>>(jsonStr);
 			}
 
-			this.ListView.ItemClick += (sender, args) =>
+			listView.ItemClick += (sender, args) =>
 			{
 				var intent = new Intent(this, typeof(MovieDetailActivity));
 				var movie = _movieList[args.Position];
@@ -39,7 +41,13 @@ namespace MovieSearch.Droid
 				// Push 
 				this.StartActivity(intent);
 			};
-			this.ListAdapter = new MovieListAdapter(this, _movieList);
+			// Get our button from the layout resource,
+			// and attach an event to it
+			var toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
+			this.SetActionBar(toolbar);
+			this.ActionBar.Title = "Search Results";
+
+			listView.Adapter = new MovieListAdapter(this, _movieList);
 		}
 	}
 		

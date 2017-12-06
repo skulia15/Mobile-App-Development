@@ -39,6 +39,10 @@ namespace MovieSearch.Droid
 			this.FindViewById<TextView>(Resource.Id.description).Text = _movie.Description;
 			var poster = this.FindViewById<ImageView>(Resource.Id.poster);
 			Glide.With(this).Load(POSTER_URL + _movie.ImageName).Into(poster);
+
+			var toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
+			this.SetActionBar(toolbar);
+			this.ActionBar.Title = "About This Movie";
 		}
 	}
 }

@@ -1,11 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-  <style name="MyTheme" parent="android:Theme.Light">
-  </style>
-  <style name="MyTheme.Splash" parent ="android:Theme.Light">
-    <item name="android:windowBackground">@drawable/Splash</item>
-    <item name="android:background">@color/lightBlack</item>
+  <style name="MyTheme.Toolbar" parent ="Theme.AppCompat.Light">
     <item name="android:windowNoTitle">true</item>
+    <item name="android:colorPrimary">@color/gold</item>
+    <item name="android:colorAccent">@color/grey</item>
+    <item name="android:textColorPrimary">@color/white</item>
+  </style>
+  <style name="MyTheme" parent="Theme.AppCompat.Light">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowActionBar">false</item>
+    <item name="android:colorPrimary">@color/darkerBlack</item>
+    <item name="android:colorAccent">@color/grey</item>
+    <item name="android:textColorPrimary">@color/white</item>
     
+  </style>
+  <style name="MyTheme.Splash" parent ="Theme.AppCompat.Light">
+    <item name="android:windowBackground">@drawable/Splash</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+  <style name="MyTheme.Tabs" parent ="Base.Widget.Design.TabLayout">
+    <item name="tabTextColor">@color/grey</item>
+    <item name="tabSelectedTextColor">@color/white</item>
+    <item name="android:background">@color/darkerBlack</item>
   </style>
 </resources>

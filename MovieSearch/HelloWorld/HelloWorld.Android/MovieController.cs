@@ -37,5 +37,11 @@ namespace MovieSearch.Droid
 			return movies;
 		}
 
+		public async Task<List<Movie>> GetTopRatedAsync()
+		{
+			List<Movie> topRated = await converter.GetTopRatedMoviesAsync();
+			return topRated;
+		}
+
 	}
 }

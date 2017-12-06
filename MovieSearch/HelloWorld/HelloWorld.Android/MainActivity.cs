@@ -1,66 +1,73 @@
 ﻿using System;
-
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Android;
+using Android.Support.Design.Widget;
+using Android.Support.V4.App;
+using Android.Support.V4.View;
 using Android.Views.InputMethods;
-using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
+using Fragment = Android.Support.V4.App.Fragment;
+using System.Collections.Generic;
+using static Android.Support.V4.View.ViewPager;
 
 namespace MovieSearch.Droid
 {
-	[Activity (Label = "MovieHub", MainLauncher = true, Icon = "@drawable/Icon", Theme="@style/MyTheme")]
-	public class MainActivity : Activity
+	[Activity (Label = "MovieHub", MainLauncher = true, Icon = "@drawable/Icon", Theme="@style/MyTheme.Toolbar")]
+	public class MainActivity : FragmentActivity
 	{
 		public static List<Movie> Movies { get; set; }
 		private MovieController movieController = new MovieController();
-		protected override void OnCreate (Bundle bundle)
+		private Fragment[] fragments;
+
+		protected override void OnCreate(Bundle bundle)
 		{
-			base.OnCreate (bundle);
+			base.OnCreate(bundle);
 			RequestWindowFeature(WindowFeatures.NoTitle);
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 
+			fragments = new Fragment[]
+			{
+				new TitleInputFragment(Movies),
+				new TopRatedFragment()
+			};
+
+			var titles = CharSequence.ArrayFromStringArray(new[] { "Movies", "Top Rated" });
+
+			var viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
+			viewPager.Adapter = new TabsFragmentPagerAdapter(SupportFragmentManager, fragments, titles);
+			var tabLayout = this.FindViewById<TabLayout>(Resource.Id.sliding_tabs);
+			tabLayout.SetupWithViewPager(viewPager);
+
+
+			viewPager.PageSelected += ViewPager_PageSelected;
 			// Get our button from the layout resource,
 			// and attach an event to it
-			var movieTitleEditText = this.FindViewById<EditText>(Resource.Id.movieTitleEditText);
-			var searchButton = this.FindViewById<Button>(Resource.Id.searchButton);
-			var loadingIcon = this.FindViewById<ProgressBar>(Resource.Id.progressBar);
-			loadingIcon.Visibility = ViewStates.Invisible;
+			var toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
+			this.SetActionBar(toolbar);
+			this.ActionBar.Title = "Movie Search";
+		}
 
-			// On search button clicked
-			searchButton.Click += async (object sender, EventArgs e) =>
+		private void ViewPager_PageSelected(object sender, PageSelectedEventArgs e)
+		{
+			if (e.Position != 0)
 			{
-				// Create a manager that handles system services
-				var manager = (InputMethodManager)this.GetSystemService(InputMethodService);
-				// Hide keyboard
-				manager.HideSoftInputFromWindow(movieTitleEditText.WindowToken, 0);
+				TitleInputFragment fragment = (TitleInputFragment)fragments[0];
+				fragment.hideKeyboard();
+			}
 
-				if(movieTitleEditText.Text != "" && movieTitleEditText != null)
-				{
-					searchButton.Enabled = false;
-					loadingIcon.Visibility = ViewStates.Visible;
-					var intent = new Intent(this, typeof(MovieListActivity));
+			if(e.Position == 1)
+			{
+				TopRatedFragment fragment = (TopRatedFragment)fragments[e.Position];
+				fragment.GenerateTopRatedAsync();
+			}
 
-					// Search for movies by title and store them in a list of movies
-					Movies = await movieController.GetMoviesByTitleAsync(movieTitleEditText.Text);
-					// Convert list of movies to list of movie title strings 
-					if (Movies.Count > 0)
-					{
-						intent.PutExtra("movieList", JsonConvert.SerializeObject(Movies));
-					}
-					loadingIcon.Visibility = ViewStates.Invisible;
-					searchButton.Enabled = true;
-					// Push 
-					this.StartActivity(intent);
-				}
-			};
 		}
 	}
 }

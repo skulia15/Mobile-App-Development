@@ -1,43 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/lib/com.app.chasebank"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center_horizontal"
-    android:background="@color/lightBlack">
-    <TextView
-        android:text="Enter words in a movie title:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/promptTextView"
-        android:textSize="18dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:layout_marginTop="30dp" />
-    <EditText
-        android:inputType="textPersonName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/movieTitleEditText"
-        android:hint="Movie Title"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/darkerBlack" />
-    <Button
-        android:text="Get movies"
-        android:layout_width="153.5dp"
-        android:layout_height="49.0dp"
-        android:id="@+id/searchButton"
-        android:gravity="center"
-        android:background="@color/gold"
-        android:textColor="@color/darkerBlack"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="0.0dp"
-        android:layout_marginBottom="0.0dp" />
-  
-    <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
-        android:layout_marginTop="20dp" />
-</LinearLayout>
+    android:layout_height="fill_parent">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/main_content"
+        android:layout_below="@id/toolbar">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkerBlack"     
+            local:tabMode="scrollable" 
+            style="@style/MyTheme.Tabs"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:background="@android:color/white" />
+    </LinearLayout>
+</RelativeLayout>
