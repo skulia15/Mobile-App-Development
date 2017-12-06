@@ -23,6 +23,9 @@ namespace MovieSearch.Droid
 		private InputMethodManager manager;
 		private View rootView;
 
+		public TitleInputFragment()
+		{
+		}
 		public TitleInputFragment(List<Movie> movies)
 		{
 			this._movies = movies;
@@ -43,7 +46,7 @@ namespace MovieSearch.Droid
 			// On search button clicked
 			searchButton.Click += async (object sender, EventArgs e) =>
 			{
-				hideKeyboard();
+				HideKeyboard();
 
 				if (movieTitleEditText.Text != "" && movieTitleEditText != null)
 				{
@@ -68,13 +71,20 @@ namespace MovieSearch.Droid
 			return rootView;
 		}
 
-		public void hideKeyboard()
+		public void HideKeyboard()
 		{
-			var movieTitleEditText = rootView.FindViewById<EditText>(Resource.Id.movieTitleEditText);
-			// Create a manager that handles system services
-			this.manager = (InputMethodManager)this.Context.GetSystemService(Context.InputMethodService);
-			// Hide keyboard
-			manager.HideSoftInputFromWindow(movieTitleEditText.WindowToken, 0);
+			try
+			{
+				var movieTitleEditText = rootView.FindViewById<EditText>(Resource.Id.movieTitleEditText);
+				// Create a manager that handles system services
+				this.manager = (InputMethodManager)this.Context.GetSystemService(Context.InputMethodService);
+				// Hide keyboard
+				manager.HideSoftInputFromWindow(movieTitleEditText.WindowToken, 0);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+			}
 		}
 	}
 }

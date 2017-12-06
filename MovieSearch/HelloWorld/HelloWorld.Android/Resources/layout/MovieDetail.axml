@@ -6,17 +6,28 @@
     android:background="@color/lightBlack">
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"
+        android:layout_marginBottom="0.0dp" />
     <RelativeLayout
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="230.0dp"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:id="@+id/backdrop"
+            android:layout_marginLeft="0.0dp"
+            android:layout_marginRight="0.0dp" />
         <TextView
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="48.0dp"
             android:id="@+id/title"
+            android:layout_below="@id/backdrop"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:layout_marginLeft="14.5dp"
@@ -39,14 +50,15 @@
             android:background="@color/gold"
             android:id="@+id/line"
             android:layout_below="@id/stats"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="13.0dp" />
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="106.5dp"
-            android:layout_height="142.5dp"
+            android:layout_height="150.0dp"
             android:id="@+id/poster"
-            android:layout_marginLeft="0.0dp"
+            android:layout_marginLeft="5.0dp"
             android:layout_marginRight="0.0dp"
+            android:layout_marginTop="0.0dp"
             android:layout_below="@id/line" />
         <TextView
             android:text="Text"

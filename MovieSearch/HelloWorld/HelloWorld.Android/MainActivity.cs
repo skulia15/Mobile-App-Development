@@ -59,7 +59,7 @@ namespace MovieSearch.Droid
 			if (e.Position != 0)
 			{
 				TitleInputFragment fragment = (TitleInputFragment)fragments[0];
-				fragment.hideKeyboard();
+				fragment.HideKeyboard();
 			}
 
 			if(e.Position == 1)

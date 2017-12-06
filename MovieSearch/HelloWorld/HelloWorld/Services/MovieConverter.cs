@@ -61,6 +61,7 @@ namespace MovieSearch.Services
 				Year = movie.ReleaseDate.Year,
 				Cast = cast,
 				ImageName = movie.PosterPath,
+				Backdrop = movie.BackdropPath,
 				Genres = genres,
 				Description = movie.Overview,
 				Runtime = movieResponse.Item.Runtime

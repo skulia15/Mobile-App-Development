@@ -10,6 +10,7 @@ namespace MovieSearch
 		public int Year { get; set; }
 		public List<string> Cast { get; set; }
 		public string ImageName { get; set; }
+		public string Backdrop { get; set; }
 		public List<string> Genres { get; set; }
 		public int Runtime { get; set; }
 		public string Description { get; set; }
