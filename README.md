@@ -2,10 +2,12 @@
 
 # Android
 
-![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android1.jpg  =250x)
+
+<img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android2.jp" width="200">
+![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android1.jpg)
 
 
-![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android2.jpg  =250x)
+![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android2.jpg)
 
 
 ![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android3.jpg)
