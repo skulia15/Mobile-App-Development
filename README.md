@@ -3,19 +3,13 @@
 # Android
 
 
+<img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android1.jpg" width="500">
+
 <img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android2.jpg" width="500">
 
+<img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android3jpg" width="500">
 
-![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android1.jpg)
-
-
-![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android2.jpg)
-
-
-![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android3.jpg)
-
-
-![alt text](https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android4.jpg)
+<img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android4.jpg" width="500">
 
 # iOS
 
