@@ -7,7 +7,7 @@
 
 <img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android2.jpg" width="500">
 
-<img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android3jpg" width="500">
+<img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android3.jpg" width="500">
 
 <img src="https://github.com/skulia15/Mobile-App-Development/blob/master/Screenshots/Android4.jpg" width="500">
 
