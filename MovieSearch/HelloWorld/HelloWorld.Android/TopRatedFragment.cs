@@ -57,8 +57,14 @@ namespace MovieSearch.Droid
 				progbar.Visibility = ViewStates.Visible;
 
 			});
-
-			_movies = await movieController.GetTopRatedAsync();
+			try
+			{
+				_movies = await movieController.GetTopRatedAsync();
+			}
+			catch(Exception e)
+			{
+				Console.WriteLine(e);
+			}
 			if (_movies.Count > 0)
 			{
 				Activity.RunOnUiThread(() =>

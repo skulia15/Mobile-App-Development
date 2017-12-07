@@ -2774,10 +2774,11 @@ containing a value of this type.
         public static final int listMode=0x7f07000f;
         public static final int list_item=0x7f070048;
         public static final int main_content=0x7f070082;
-        public static final int masked=0x7f0700a9;
+        public static final int masked=0x7f0700aa;
         public static final int media_actions=0x7f070094;
         public static final int middle=0x7f070022;
         public static final int mini=0x7f07003e;
+        public static final int movieList=0x7f07008b;
         public static final int movieTitleEditText=0x7f0700a6;
         public static final int multiply=0x7f070019;
         public static final int navigation_header_container=0x7f07007b;
@@ -2851,7 +2852,7 @@ containing a value of this type.
         public static final int toolbar=0x7f070081;
         public static final int top=0x7f070029;
         public static final int topPanel=0x7f070056;
-        public static final int topRated=0x7f07008b;
+        public static final int topRated=0x7f0700a8;
         public static final int touch_outside=0x7f070077;
         public static final int transition_current_scene=0x7f07000a;
         public static final int transition_scene_layoutid_cache=0x7f07000b;
@@ -2859,7 +2860,7 @@ containing a value of this type.
         public static final int useLogo=0x7f070018;
         public static final int view_offset_helper=0x7f07000e;
         public static final int viewpager=0x7f070084;
-        public static final int visible=0x7f0700a8;
+        public static final int visible=0x7f0700a9;
         public static final int withText=0x7f070027;
         public static final int wrap_content=0x7f07001f;
     }

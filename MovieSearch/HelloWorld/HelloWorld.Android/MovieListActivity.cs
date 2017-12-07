@@ -24,11 +24,18 @@ namespace MovieSearch.Droid
 			SetContentView(Resource.Layout.MovieList);
 			// Create application here
 
-			var listView = FindViewById<ListView>(Resource.Id.topRated);
+			var listView = FindViewById<ListView>(Resource.Id.movieList);
+			var loading = FindViewById<ProgressBar>(Resource.Id.progressBar);
+			loading.Visibility = ViewStates.Gone;
 			// Get the passed JSON string of movies
 			var jsonStr = this.Intent.GetStringExtra("movieList");
 			// Convert from JSON string to a list of movies
-			if(jsonStr != null && jsonStr != "")
+			if(jsonStr == "[]")
+			{
+				Toast.MakeText(ApplicationContext, "No Result", ToastLength.Long).Show();
+				_movieList = new List<Movie>();
+			}
+			else if(jsonStr != null && jsonStr != "")
 			{
 				_movieList = JsonConvert.DeserializeObject<List<Movie>>(jsonStr);
 			}

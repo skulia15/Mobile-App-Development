@@ -19,7 +19,6 @@ namespace MovieSearch.Droid
 	{
 		private Movie _movie;
 		private const string POSTER_URL = "http://image.tmdb.org/t/p/original";
-		
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -37,11 +36,21 @@ namespace MovieSearch.Droid
 			this.FindViewById<TextView>(Resource.Id.title).Text = _movie.Title + " (" + _movie.Year + ")";
 			this.FindViewById<TextView>(Resource.Id.stats).Text = _movie.Runtime + " min | " + _movie.getStringedGenres();
 			this.FindViewById<TextView>(Resource.Id.description).Text = _movie.Description;
-			var poster = this.FindViewById<ImageView>(Resource.Id.poster);
-			var backdrop = this.FindViewById<ImageView>(Resource.Id.backdrop);
-			Glide.With(this).Load(POSTER_URL + _movie.ImageName).Into(poster);
-			Glide.With(this).Load(POSTER_URL + _movie.Backdrop).Into(backdrop);
 
+			// Load the Poster Image
+			if(_movie.ImageName != null || _movie.ImageName != "")
+			{
+				var poster = this.FindViewById<ImageView>(Resource.Id.poster);
+				Glide.With(this).Load(POSTER_URL + _movie.ImageName).Into(poster);
+			}
+			// Load the Backdrop
+			if (_movie.Backdrop != null || _movie.Backdrop != "")
+			{
+				var backdrop = this.FindViewById<ImageView>(Resource.Id.backdrop);
+				Glide.With(this).Load(POSTER_URL + _movie.Backdrop).Into(backdrop);
+			}
+			
+			// Display the toolbar
 			var toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
 			this.SetActionBar(toolbar);
 			this.ActionBar.Title = "About This Movie";

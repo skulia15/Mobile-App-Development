@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightBlack"
-    android:padding="10dp">
+    android:padding="5dp">
   
   <TextView
         android:text=""
@@ -28,8 +28,8 @@
         android:layout_toRightOf="@+id/poster" />
     <ImageView
         android:id="@+id/poster"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_alignParentRight="false"
         android:layout_marginLeft="0.0dp"
         android:layout_marginRight="5dp"

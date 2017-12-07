@@ -49,10 +49,12 @@ namespace MovieSearch.Droid
 			string castMembers = movie.CastToString();
 
 			view.FindViewById<TextView>(Resource.Id.cast).Text = castMembers;
-			var resourceId = this._context.Resources.GetIdentifier(movie.ImageName, "drawable", this._context.PackageName);
+			//var resourceId = this._context.Resources.GetIdentifier(movie.ImageName, "drawable", this._context.PackageName);
 			var poster = view.FindViewById<ImageView>(Resource.Id.poster);
 
-			Glide.With(_context).Load(POSTER_URL + movie.ImageName).Into(poster);
+			if(movie.ImageName != null && movie.ImageName != ""){
+				Glide.With(_context).Load(POSTER_URL + movie.ImageName).Into(poster);
+			}
 
 			return view;
 		}

@@ -54,18 +54,34 @@ namespace MovieSearch.Droid
 					loadingIcon.Visibility = ViewStates.Visible;
 					var intent = new Intent(this.Context, typeof(MovieListActivity));
 
-					// Search for movies by title and store them in a list of movies
-					_movies = await movieController.GetMoviesByTitleAsync(movieTitleEditText.Text);
+					try
+					{
+						// Search for movies by title and store them in a list of movies
+						_movies = await movieController.GetMoviesByTitleAsync(movieTitleEditText.Text);
+					}
+					catch (Exception ex)
+					{
+						Console.WriteLine(ex);
+					}
+					
 					loadingIcon.Visibility = ViewStates.Invisible;
 					searchButton.Enabled = true;
-					if (_movies.Count > 0)
+					if (_movies.Count > 0 && _movies != null)
 					{
 						// Convert list of movies to list of movie title strings 
 						intent.PutExtra("movieList", JsonConvert.SerializeObject(_movies));
-
-						// Push 
-						this.StartActivity(intent);
 					}
+					else
+					{
+						intent.PutExtra("movieList", JsonConvert.SerializeObject(new List<Movie>()));
+					}
+
+					// Push 
+					this.StartActivity(intent);
+				}
+				else
+				{
+					Toast.MakeText(this.Context, "Please provide a title", ToastLength.Long).Show();
 				}
 			};
 			return rootView;

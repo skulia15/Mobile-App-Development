@@ -2444,8 +2444,8 @@ namespace MovieSearch.Droid
 			// aapt resource value: 0x7f070082
 			public const int main_content = 2131165314;
 			
-			// aapt resource value: 0x7f0700a9
-			public const int masked = 2131165353;
+			// aapt resource value: 0x7f0700aa
+			public const int masked = 2131165354;
 			
 			// aapt resource value: 0x7f070094
 			public const int media_actions = 2131165332;
@@ -2455,6 +2455,9 @@ namespace MovieSearch.Droid
 			
 			// aapt resource value: 0x7f07003e
 			public const int mini = 2131165246;
+			
+			// aapt resource value: 0x7f07008b
+			public const int movieList = 2131165323;
 			
 			// aapt resource value: 0x7f0700a6
 			public const int movieTitleEditText = 2131165350;
@@ -2675,8 +2678,8 @@ namespace MovieSearch.Droid
 			// aapt resource value: 0x7f070056
 			public const int topPanel = 2131165270;
 			
-			// aapt resource value: 0x7f07008b
-			public const int topRated = 2131165323;
+			// aapt resource value: 0x7f0700a8
+			public const int topRated = 2131165352;
 			
 			// aapt resource value: 0x7f070077
 			public const int touch_outside = 2131165303;
@@ -2699,8 +2702,8 @@ namespace MovieSearch.Droid
 			// aapt resource value: 0x7f070084
 			public const int viewpager = 2131165316;
 			
-			// aapt resource value: 0x7f0700a8
-			public const int visible = 2131165352;
+			// aapt resource value: 0x7f0700a9
+			public const int visible = 2131165353;
 			
 			// aapt resource value: 0x7f070027
 			public const int withText = 2131165223;
