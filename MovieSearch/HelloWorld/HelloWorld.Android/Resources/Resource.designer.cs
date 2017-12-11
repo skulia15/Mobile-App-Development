@@ -2141,34 +2141,37 @@ namespace MovieSearch.Droid
 			public const int Icon = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int marilyn_monroe = 2130837596;
+			public const int LaunchImage = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int navigation_empty_icon = 2130837597;
+			public const int marilyn_monroe = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int notification_action_background = 2130837598;
+			public const int navigation_empty_icon = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int notification_bg = 2130837599;
+			public const int notification_action_background = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int notification_bg_low = 2130837600;
+			public const int notification_bg = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int notification_bg_low_normal = 2130837601;
+			public const int notification_bg_low = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int notification_bg_low_pressed = 2130837602;
+			public const int notification_bg_low_normal = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int notification_bg_normal = 2130837603;
+			public const int notification_bg_low_pressed = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_bg_normal_pressed = 2130837604;
+			public const int notification_bg_normal = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notification_icon_background = 2130837605;
+			public const int notification_bg_normal_pressed = 2130837605;
+			
+			// aapt resource value: 0x7f020066
+			public const int notification_icon_background = 2130837606;
 			
 			// aapt resource value: 0x7f020069
 			public const int notification_template_icon_bg = 2130837609;
@@ -2176,14 +2179,11 @@ namespace MovieSearch.Droid
 			// aapt resource value: 0x7f02006a
 			public const int notification_template_icon_low_bg = 2130837610;
 			
-			// aapt resource value: 0x7f020066
-			public const int notification_tile_bg = 2130837606;
-			
 			// aapt resource value: 0x7f020067
-			public const int notify_panel_notification_icon_bg = 2130837607;
+			public const int notification_tile_bg = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int splash = 2130837608;
+			public const int notify_panel_notification_icon_bg = 2130837608;
 			
 			static Drawable()
 			{

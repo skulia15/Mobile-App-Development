@@ -15,7 +15,7 @@
     
   </style>
   <style name="MyTheme.Splash" parent ="Theme.AppCompat.Light">
-    <item name="android:windowBackground">@drawable/Splash</item>
+    <item name="android:windowBackground">@drawable/LaunchImage</item>
     <item name="android:windowNoTitle">true</item>
   </style>
   <style name="MyTheme.Tabs" parent ="Base.Widget.Design.TabLayout">
